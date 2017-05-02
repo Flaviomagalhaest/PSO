@@ -20,9 +20,8 @@ configPSO = Config_PSO(
 {'nr_indiv' : 10
 })
 
-enderecos = sys.argv[1]
-with open('log.txt', 'w') as f:
-    f.write('novo '+sys.argv[1])
+enderecos = sys.argv[1].replace('lat','"lat"')
+enderecos = enderecos.replace('lng', '"lng"')
 # if(prof_opcao == 'classico'):
 #     linkEx = 'http://www.math.uwaterloo.ca/tsp/vlsi/xqf131.tsp'    
 #     f = urllib.urlopen(linkEx)
@@ -33,7 +32,7 @@ with open('log.txt', 'w') as f:
 gmaps = googlemaps.Client(configAPI.key)
 
 # Instanciando pontos
-pontos = Pontos(enderecos, gmaps)
+pontos = Pontos(json.loads(enderecos), gmaps)
 
 # Criando matriz distância de cada ponto
 #transporte pode ser: driving, walking, bicycling, transit
