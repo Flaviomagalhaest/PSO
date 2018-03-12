@@ -5,7 +5,7 @@ from django.template import loader
 def index(request):
     template = loader.get_template('polls/index.html')
     context = {
-        
+        'teste': 'Testando passagem de variavel'
     }
     return HttpResponse(template.render(context,request))
     #return render(request, 'polls/index.html')
