@@ -15,7 +15,7 @@ function codificaPath(pathPHP, locais) {
 
 var coord = Array();
 
-function mostraGrafico() {
+window.onload = function mostraGrafico() {
     var myLatlng = new google.maps.LatLng(-23.973705011113726,-46.31132125854492);
     var myOptions = { zoom: 13, center: myLatlng}
     var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
@@ -36,15 +36,26 @@ function placeMarker(location, map) {
 
 //ENVIA CORDENADAS E RECEBE DE VOLA OS RESULTADOS DA ROTA
 function envioCoord() {
-    $.post("gmaps.php", {
-        coord: JSON.stringify(coord),
-        RETORNO: true
-    }, function(response) {
-        console.log(response);
-        var k = response.split(';');
-        var pathPHP = JSON.parse(k[0]);
-        var locais = JSON.parse(k[1]);
-        codificaPath(pathPHP, locais);
-    });
+    $.ajax({
+        type:"POST",
+        url:"/googlemapspso/teste/",
+        data: {
+               teste: 'teste'
+               },
+        success: function(){
+            $('#message').html("<h2>Contact Form Submitted!</h2>") 
+           }
+   });
+    // $.post("gmaps.php", {
+    //     coord: JSON.stringify(coord),
+    //     RETORNO: true
+    // }, function(response) {
+    //     console.log(response);
+    //     var k = response.split(';');
+    //     var pathPHP = JSON.parse(k[0]);
+    //     var locais = JSON.parse(k[1]);
+    //     codificaPath(pathPHP, locais);
+    // });
 
 }
+
