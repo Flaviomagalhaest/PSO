@@ -1,6 +1,6 @@
 """Classe de Pontos"""
 # -*- coding: utf-8 -*-
-import lib 
+from . import lib 
 
 class Pontos(object):          
     lista = []

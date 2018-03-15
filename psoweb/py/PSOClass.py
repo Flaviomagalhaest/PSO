@@ -1,8 +1,8 @@
 """PSO"""
 # -*- coding: utf-8 -*-
 import copy
-import lib
-from IndivClass import Individuo, Caminho
+from . import lib
+from .IndivClass import Individuo, Caminho
 
 
 class PSO(object):    

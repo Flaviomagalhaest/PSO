@@ -1,7 +1,11 @@
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.template import loader
 from py import ConfigConstants as cc
+from py import main
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_http_methods
+import json
 
 def index(request):
     template = loader.get_template('googlemapspso/index.html')
@@ -14,7 +18,15 @@ def index(request):
     return render(request,'googlemapspso/index.html',context)
     #return HttpResponse(template.render(context,request))
 
-
-@csrf_exempt 
+@csrf_exempt
+@require_http_methods(['POST']) 
 def teste(request):
-    a = 1
+    jsonAjax = (request.body).decode('utf-8')
+    coordenadas = json.loads(jsonAjax)
+    resultado = main.pso(coordenadas)
+    key = cc.inicializaConfig()
+    context = {
+        'key': key.key,
+    }
+    return JsonResponse(json.loads(resultado))
+    #return render(request,'googlemapspso/index.html',context)

@@ -1,8 +1,8 @@
 //DESENHA O MAPA USANDO WEBSERVICE DO GOOGLE MAPS PARA MAPAS ESTÁTICOS
-function codificaPath(pathPHP, locais) {
+function codificaPath(pathPy, locais) {
     var pathJS = Array();
-    pathPHP.forEach(function(path) {
-        var a = new google.maps.LatLng(path.lat, path.lng);
+    Object.keys(pathPy).forEach(function(i) {
+        var a = new google.maps.LatLng(pathPy[i].lat, pathPy[i].lng);
         pathJS.push(a);
     }, this);
     var pathEncode = google.maps.geometry.encoding.encodePath(pathJS);
@@ -36,26 +36,17 @@ function placeMarker(location, map) {
 
 //ENVIA CORDENADAS E RECEBE DE VOLA OS RESULTADOS DA ROTA
 function envioCoord() {
-    $.ajax({
-        type:"POST",
-        url:"/googlemapspso/teste/",
-        data: {
-               teste: 'teste'
-               },
-        success: function(){
-            $('#message').html("<h2>Contact Form Submitted!</h2>") 
-           }
+    $.ajax({        
+        type:'POST',
+        url:'/googlemapspso/teste/',
+        contentType: 'application/json; charset=utf-8',
+        traditional: true,
+        data: JSON.stringify(coord),
+        success: function(response){
+            console.log(response);
+            codificaPath(response.pontos, response.gbest);
+        }
    });
-    // $.post("gmaps.php", {
-    //     coord: JSON.stringify(coord),
-    //     RETORNO: true
-    // }, function(response) {
-    //     console.log(response);
-    //     var k = response.split(';');
-    //     var pathPHP = JSON.parse(k[0]);
-    //     var locais = JSON.parse(k[1]);
-    //     codificaPath(pathPHP, locais);
-    // });
 
 }
 
