@@ -18,5 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     path('googlemapspso/', include('googlemapspso.urls')),
+    path('psoclassic/', include('psoclassic.urls')),
     path('admin/', admin.site.urls),
 ]

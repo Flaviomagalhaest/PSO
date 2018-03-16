@@ -20,15 +20,6 @@ configPSO = Config_PSO(
 {'nr_indiv' : 10
 })
 
-#enderecos = sys.argv[1].replace('lat','"lat"')
-#enderecos = enderecos.replace('lng', '"lng"')
-# if(prof_opcao == 'classico'):
-#     linkEx = 'http://www.math.uwaterloo.ca/tsp/vlsi/xqf131.tsp'    
-#     f = urllib.urlopen(linkEx)
-#     myfile = f.read()
-
-# else if(prof_opcao == 'google'):
-    # Key da API
 def pso(enderecos):
     teste = 1
     gmaps = googlemaps.Client(configAPI.key)
@@ -44,7 +35,6 @@ def pso(enderecos):
     pso = PSO(configPSO, len(pontos.lista), pontos)
 
     # Gera Iterações
-    #print(lib.SerializarObjJSON(pso.gera_iteracoes(200)))
     return lib.SerializarObjJSON(pso.gera_iteracoes(200))
 
 
