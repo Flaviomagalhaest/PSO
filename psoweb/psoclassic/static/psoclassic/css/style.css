@@ -6,6 +6,7 @@
     border-radius: 20px;
     float: left;
     min-height: 318px;
+    min-width: 850px;
 }
 
 #menu {    
@@ -16,6 +17,7 @@
     border: 1px solid #ccc;
     border-radius: 20px;
     min-height: 318px;
+    min-width: 185px;
 }
 
 .botaoMenuDiv{
