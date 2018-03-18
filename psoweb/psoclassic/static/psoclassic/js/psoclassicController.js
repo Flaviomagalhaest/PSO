@@ -15,16 +15,24 @@ $(document).ready(function(){
 //ENVIANDO PONTOS PARA O BACK E RECEBENDO DE VOLTA
 //COM AS COORDENADAS CALCULADAS
 function calcular() {
+    var c1 = $('#c1').val();
+    var c2 = $('#c2').val();
+    var constantes = {c1,c2};
     $.ajax({
         type: 'POST',
         url: '/psoclassic/calculapso/',
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify({ 
             indiv: JSON.stringify(indiv),
-            objetivo: JSON.stringify(objetivo)
+            objetivo: JSON.stringify(objetivo),
+            constantes: JSON.stringify(constantes),
         }),
         success: function(response){
             console.log(response);
+            //Atualizando lista de indivs
+            indiv = response.slice()
+            limparTela();
+            plotTela(objetivo)
         }
     });
 }
@@ -70,7 +78,7 @@ function criaObjetivo() {
     var x = randomIntFromInterval(valorMin, valorMax);
     var y = randomIntFromInterval(valorMin, valorMax);
     objetivo = {x,y};
-    $('#tela svg').remove() //LIMPANDO TELA
+    limparTela();
     plotTela(objetivo);
 }
 

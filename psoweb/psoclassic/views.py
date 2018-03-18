@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.template import loader
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+#from py import classico
+from py.classico import PSOClassic as pso
 import json
 
 def index(request):
@@ -15,4 +17,6 @@ def calcula(request):
     data = json.loads(jsonAjax)
     indiv = json.loads(data['indiv'])
     objetivo = json.loads(data['objetivo'])
-    return JsonResponse(json.loads(a))
+    constantes = json.loads(data['constantes'])
+    indivs = pso.execute(indiv,objetivo,constantes)
+    return JsonResponse(json.loads(indivs), safe=False)
