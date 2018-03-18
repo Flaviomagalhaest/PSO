@@ -21,7 +21,6 @@ configPSO = Config_PSO(
 })
 
 def pso(enderecos):
-    teste = 1
     gmaps = googlemaps.Client(configAPI.key)
 
     # Instanciando pontos
