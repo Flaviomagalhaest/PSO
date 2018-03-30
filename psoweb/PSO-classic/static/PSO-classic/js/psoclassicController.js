@@ -20,7 +20,7 @@ function calcular() {
     var constantes = {c1,c2};
     $.ajax({
         type: 'POST',
-        url: '/psoclassic/calculapso/',
+        url: '/PSO-classic/calculapso/',
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify({ 
             indiv: JSON.stringify(indiv),

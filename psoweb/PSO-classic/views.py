@@ -7,9 +7,9 @@ from py.classico import PSOClassic as pso
 import json
 
 def index(request):
-    template = loader.get_template('psoclassic/index.html')
+    template = loader.get_template('PSO-classic/index.html')
     context = { }
-    return render(request,'psoclassic/index.html',context)
+    return render(request,'PSO-classic/index.html',context)
 
 @csrf_exempt
 def calcula(request):

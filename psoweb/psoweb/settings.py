@@ -31,8 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'googlemapspso.apps.GooglemapspsoConfig',
-    'psoclassic.apps.PsoclassicConfig',
+    'PSO-googlemaps.apps.GooglemapspsoConfig',
+    'PSO-classic.apps.PsoclassicConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

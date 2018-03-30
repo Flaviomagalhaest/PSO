@@ -1,7 +1,7 @@
-psoweb/googlemapspso/__pycache__/
-psoweb/googlemapspso/migrations/__pycache__/
-psoweb/psoclassic/__pycache__/
+psoweb/PSO-googlemaps/__pycache__/
+psoweb/PSO-googlemaps/migrations/__pycache__/
+psoweb/PSO-classic/__pycache__/
 psoweb/psoweb/__pycache__/
 psoweb/py/__pycache__/
-psoweb/psoclassic/migrations/__pycache__/
+psoweb/PSO-classic/migrations/__pycache__/
 psoweb/py/classico/__pycache__/
