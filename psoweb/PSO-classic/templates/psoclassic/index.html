@@ -1,0 +1,34 @@
+<html>
+{% load static %}
+<head>
+<link rel="stylesheet" type="text/css" href="{% static "psoclassic/css/furtive.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "psoclassic/css/style.css" %}">
+<script src="{% static "psoclassic/js/two.min.js" %}"></script>
+<script src="{% static "psoclassic/js/jquery.min.js" %}"></script>
+<script src="{% static "psoclassic/js/psoclassicController.js" %}"></script>
+</head>
+<body>
+<div id="tela"></div>
+<div id="menu">
+    <div class="botaoMenuDiv">
+        <input type="text" id="c1" class="const" placeholder="c1">
+        <input type="text" id="c2" class="const" placeholder="c2">
+    </div>
+    <div class="botaoMenuDiv">
+        <input type="text" id="qtdIndividuos" placeholder="Qtd. Indiv.">
+    </div>    
+    <div class="botaoMenuDiv">
+        <a id="criaObjetivo" onclick="criaObjetivoClick()" class="botaoMenu btn--red">Cria Objetivo</a>
+    </div>
+    <div class="botaoMenuDiv">
+        <a id="gerarPop" onclick="gerarPopClick()" class="botaoMenu btn--blue">Gera pop.</a>
+    </div>
+    <div class="botaoMenuDiv">
+        <a id="limpar" onclick="limparTelaClick()" class="botaoMenu btn--green">Limpar</a>
+    </div>
+    <div class="botaoMenuDiv">
+        <a id="calcular" onclick="calcularClick()" class="botaoMenu btn--blue">Calcular</a>
+    </div>
+</div>
+</body>
+</html>
