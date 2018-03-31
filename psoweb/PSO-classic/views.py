@@ -3,7 +3,7 @@ from django.template import loader
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 #from py import classico
-from py.classico import PSOClassic as pso
+from py.classic import PSOClassic as pso
 import json
 
 def index(request):
