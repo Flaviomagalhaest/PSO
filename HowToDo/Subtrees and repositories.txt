@@ -1,0 +1,30 @@
+# Principal Repository
+PSO
+https://github.com/Flaviomagalhaest/PSO
+
+# Linked Repositories
+	
+	# PSO-classic
+	https://github.com/Flaviomagalhaest/PSO-classic
+	
+	#PSO-googlemaps
+	https://github.com/Flaviomagalhaest/PSO-googlemaps
+	
+	#PSO-library
+	https://github.com/Flaviomagalhaest/PSO-library
+	
+	
+subtrees commands
+#add
+	git subtree add --prefix={pathDirectory} {nameRemoteOrLinkOfRepository} branch
+	[git subtree add --prefix=psoweb/PSO-classic/ PSO-classic master]
+	
+#push
+	git subtree push --prefix='pathDirectory' nameRemoteOrLinkOfRepository branch
+	[git subtree push --prefix=psoweb/PSO-classic/ PSO-classic master]
+
+remote commands
+#add
+	git remote add {nameOfRemote} {linkOfRepository}
+	[git remote add py https:github.com/Flaviomagalhaest/PSO-library.git
+
