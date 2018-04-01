@@ -12,7 +12,14 @@ https://github.com/Flaviomagalhaest/PSO
 	
 	#PSO-library
 	https://github.com/Flaviomagalhaest/PSO-library
+
+	#PSO-tsp
+	https://github.com/Flaviomagalhaest/PSO-tsp
 	
+remote commands
+#add
+	git remote add {nameOfRemote} {linkOfRepository}
+	[git remote add py https:github.com/Flaviomagalhaest/PSO-library.git
 	
 subtrees commands
 #add
@@ -23,8 +30,4 @@ subtrees commands
 	git subtree push --prefix='pathDirectory' nameRemoteOrLinkOfRepository branch
 	[git subtree push --prefix=psoweb/PSO-classic/ PSO-classic master]
 
-remote commands
-#add
-	git remote add {nameOfRemote} {linkOfRepository}
-	[git remote add py https:github.com/Flaviomagalhaest/PSO-library.git
 
