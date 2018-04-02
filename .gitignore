@@ -5,3 +5,6 @@ psoweb/psoweb/__pycache__/
 psoweb/py/__pycache__/
 psoweb/PSO-classic/migrations/__pycache__/
 psoweb/py/classic/__pycache__/
+psoweb/PSO-tsp/__pycache__/
+psoweb/PSO-tsp/migrations/__pycache__/
+psoweb/py/tsp/__pycache__/
