@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.template import loader
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-#from py import classico
 from py.classic import PSOClassic as pso
 import json
 
