@@ -1,10 +1,14 @@
-python 3.6
+﻿python 3.6
 
 #Atualizando pip
 py -m pip install -U pip
 
 #Instalando django
 py -m pip install django
+
+#Instalando pytest
+pip install pytest
+pip install pytest-django
 
 #Instalando virtualenv
 py -m pip install virtualenvwrapper-win
