@@ -61,7 +61,7 @@
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
-            "stopOnEntry": true,
+            "stopOnEntry": false,
             "pythonPath": "D:\\Python\\Python36-32",
             "program": "${workspaceFolder}/psoweb/manage.py",
             "cwd": "${workspaceFolder}",
@@ -74,7 +74,7 @@
             "envFile": "${workspaceFolder}/.env",
             "debugOptions": [
                 "RedirectOutput",
-                "DjangoDebugging"
+                "DebugStdLib"
             ]
         },
         {
