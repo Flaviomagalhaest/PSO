@@ -6,11 +6,21 @@ class Pontos(object):
     pontos = []                                     #Lista de objetos 'Ponto'.
 
     #Construtor recebe lista de coordenadas x e y. Cria lista de objetos 'Ponto'.
-    def __init__(self, dictPontos):
-        self.pontos = []
-        for p in dictPontos:        #Foreach para cada coordenada da lista
-            ponto = Ponto(p)        #Instanciando classe Ponto através da coordenada x e y obtida
-            self.pontos.append(ponto)       #Adicionado objeto Ponto na lista
+    def __init__(self, dictPontos=None, jsonSessao=None):
+        #Construtor a partir de dicionario de coordenadas de pontos
+        if (dictPontos != None):
+            self.pontos = []
+            for p in dictPontos:        #Foreach para cada coordenada da lista
+                ponto = Ponto(p)        #Instanciando classe Ponto através da coordenada x e y obtida
+                self.pontos.append(ponto)       #Adicionado objeto Ponto na lista
+
+        #Construtor a partir de pontos em formato JSON salvos em sessão
+        if(jsonSessao != None):
+            listaPontos = json.loads(jsonSessao)    #Transformando json e um dicionario
+            for p in listaPontos:
+                ponto = Ponto(p)                #Instanciando Ponto
+                ponto.matrixDist = p['matrix']  #Guardando matriz distancia
+                self.pontos.append(ponto)            #Adicionando na lista
 
     def calcMatrixDist(self):
         for p1 in range(0,len(self.pontos)):        #loop primário
