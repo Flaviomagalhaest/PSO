@@ -5,6 +5,7 @@ class Individuo(object):
     pbest = []
     distAtual = ''
     distPbest = ''
+    gbest = False
 
     # Instância atual e distância do Individuo.
     def __init__(self, atual, distAtual):
@@ -18,6 +19,7 @@ class Individuo(object):
             'atual' : self.atual,
             'pbest' : self.pbest,
             'distAtual' : self.distAtual,
-            'distPbest' : self.pbest
+            'distPbest' : self.pbest,
+            'gbest' : self.gbest
         }
         return json.dumps(jsonRetorno)
