@@ -3,8 +3,8 @@ import json
 class Individuo(object):
     atual = []
     pbest = []
-    distAtual = ''
-    distPbest = ''
+    distAtual = 0
+    distPbest = 0
     gbest = False
 
     # Instância atual e distância do Individuo.
@@ -12,6 +12,8 @@ class Individuo(object):
         if(json == None):
             self.atual = atual
             self.distAtual = distAtual
+            self.pbest = atual
+            self.distPbest = distAtual
         else:
             self.atual = json['atual']
             self.pbest = json['pbest']
@@ -26,7 +28,7 @@ class Individuo(object):
             'atual' : self.atual,
             'pbest' : self.pbest,
             'distAtual' : self.distAtual,
-            'distPbest' : self.pbest,
+            'distPbest' : self.distPbest,
             'gbest' : self.gbest
         }
         return json.dumps(jsonRetorno)
