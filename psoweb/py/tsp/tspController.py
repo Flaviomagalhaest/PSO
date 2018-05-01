@@ -29,6 +29,7 @@ def geraIteracao(iteracaoAtual, nrIteracoes, individuosJson, pontosJson):
     #Começando iterações
     for j in range(0,nrIteracoes):
         gbest = [i for i in individuos if i.gbest == True]  #Buscando o gbest da lista de individuos
+        print('Iteração: '+str(j)+' distancia do gbest atual da população: ' + str(gbest[0].distAtual))
 
         #Iterar cada individuo para crossover
         for indiv in individuos:
