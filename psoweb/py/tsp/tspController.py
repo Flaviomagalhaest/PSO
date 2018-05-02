@@ -5,6 +5,7 @@ import random, json, copy
 def calcMatrixDist(pontosJson):
     pontosObj = P.Pontos(dictPontos = pontosJson)    #Instanciando classe de Pontos. Passando dicionario de coord.
     pontosObj.calcMatrixDist()      #Calculando para cada ponto em Pontos, sua matriz distância.
+    pontosObj.calcFatorHeuristico() #Calculando fator heurístico para cada ponto
     return pontosObj
 
 def geraPopInicial(qtdPopInicial, qtdPontos, pontosJson):

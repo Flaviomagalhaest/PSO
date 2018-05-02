@@ -1,6 +1,5 @@
 from .PontoClass import Ponto
-import math
-import json
+import math, json, copy
 
 class Pontos(object):
     pontos = []                                     #Lista de objetos 'Ponto'.
@@ -43,6 +42,26 @@ class Pontos(object):
             dist += self.pontos[caminho[i]].matrixDist[caminho[i + 1]]  #Soma a distância total, a distância do ponto ao próximo
         return 'Erro em calcular distancia total do caminho'
 
+    #Calcula para cada ponto da lista pontos seu fator heurístico.
+    def calcFatorHeuristico(self):
+        for i in range(0, len(self.pontos)):
+            listaHeuristica = [i]
+            while(listaHeuristica != []):
+                listaHeuristica = self.definirListaHeuristica(i,listaHeuristica[-1], listaHeuristica)
+            self.pontos[i].fatorHeuristico = self.pontos[i].fatorHeuristico[1:]
+
+    def definirListaHeuristica(self, indiceOriginal, indiceLista, listaHeuristica):
+        matrixDist = copy.copy(self.pontos[indiceLista].matrixDist)   #Copiando matriz distancia
+        matrixDist[indiceLista] = max(matrixDist) #Serve apenas para que na linha abaixo ele não se ache.
+        menorDist = min(matrixDist)     #Buscando a menor distância de sua matriz (ignorando ele próprio garças a linha acima)            
+        indiceDoMenor = [i for i, j in enumerate(matrixDist) if j == menorDist] #Busca o índice da menor distância
+        if indiceDoMenor[0] in listaHeuristica:
+            self.pontos[indiceOriginal].fatorHeuristico = listaHeuristica
+            return []   #Caso o indice achado já esteja na lista heurística
+        else:
+            listaHeuristica.append(indiceDoMenor[0])   #Adiciona maus um indice na lista
+            return listaHeuristica
+
     def toJson(self):
         jsonRetorno = []
         for p1 in range(0,len(self.pontos)):
@@ -51,6 +70,7 @@ class Pontos(object):
                 'x':self.pontos[p1].x,
                 'y':self.pontos[p1].y,
                 'matrix':self.pontos[p1].matrixDist
+                'fatorHeuristico':self.pontos[p1].fatorHeuristico
             }
             jsonRetorno.append(pontoRetorno)
         return json.dumps(jsonRetorno)
