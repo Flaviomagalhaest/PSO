@@ -15,6 +15,7 @@ class Pontos(object):
 
         #Construtor a partir de pontos em formato JSON salvos em sessão
         if(jsonSessao != None):
+            self.pontos = []
             listaPontos = json.loads(jsonSessao)    #Transformando json e um dicionario
             for p in listaPontos:
                 ponto = Ponto(p)                #Instanciando Ponto
@@ -69,7 +70,7 @@ class Pontos(object):
             pontoRetorno = {
                 'x':self.pontos[p1].x,
                 'y':self.pontos[p1].y,
-                'matrix':self.pontos[p1].matrixDist
+                'matrix':self.pontos[p1].matrixDist,
                 'fatorHeuristico':self.pontos[p1].fatorHeuristico
             }
             jsonRetorno.append(pontoRetorno)
