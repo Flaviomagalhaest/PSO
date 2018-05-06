@@ -10,7 +10,6 @@ class Config_API(object):
     
     def __init__(self, configs):
         self.key = configs['key']
-        self.txtEnderecos = configs['txtEnderecos']
         self.transporte = configs['transporte']
         self.limitDia = configs['limitDia']
         self.limitRequi = configs['limitRequi']
