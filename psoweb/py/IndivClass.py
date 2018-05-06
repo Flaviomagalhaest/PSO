@@ -36,7 +36,7 @@ class Caminho(object):
     distTotal = 0
     
     def __init__(self):
-        pass
+        self.caminho = []
     
     def calcDistancia(self, pontos):
         self.distTotal = 0

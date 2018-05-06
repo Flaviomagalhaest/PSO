@@ -13,6 +13,8 @@ class PSO(object):
     log1 = []
     log2 = []        
     def __init__(self, config, nrCidades, pontos):
+        #  Instanciando variáveis
+        self.individuos = []
         #  Gravando configurações na instância
         self.config = config
         # Gravando pontos de destino

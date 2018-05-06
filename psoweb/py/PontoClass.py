@@ -9,6 +9,8 @@ class Pontos(object):
     
     def __init__(self, listaEnderecos, gmaps):
         self.gmaps = gmaps
+        self.lista = []
+        self.coords = []
         # Instanciando os pontos obtidos    
         for end in listaEnderecos:            
             p = Ponto(end)            
@@ -47,6 +49,8 @@ class Ponto(object):
     matrixDist = [] 
     
     def __init__(self, end):
+        self.endereco = ''
+        self.matrixDist = ''
         self.coordenada = end      
         
 
