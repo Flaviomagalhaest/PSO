@@ -24,11 +24,15 @@ function calcMatrixDist(locais, usarArquivo, nomeDoArquivo, elemJquery) {
         $.ajax({
             type: 'POST',
             url: '/PSO-tsp/calcMatrixDist/',
+            async: false,
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify({ 
                 usarArquivo: usarArquivo,
                 pontos: locais
             }),
+            success: function(response){
+                retorno = response;
+            }
         });
     }
     return JSON.parse(retorno)
