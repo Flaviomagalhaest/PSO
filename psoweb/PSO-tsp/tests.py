@@ -3,7 +3,7 @@ from py.tsp import PontosClass as P
 from py.tsp import PontoClass as Ponto
 from py.tsp import tspController as tspController
 from py.tsp import IndividuoClass as I
-import os, json
+import os, json, copy
 
 
 class PSOTspTestCase(TestCase):
@@ -29,10 +29,11 @@ class PSOTspTestCase(TestCase):
         self.assertEqual(self.pontosObj.pontos[2].matrixDist,[3.1622776601683795, 1.4142135623730951, 0.0])
 
     def test_geraJsonCorretamente(self):
+        self.maxDiff = None
         self.assertEqual(self.pontosObj.toJson(),
-            '[{"x": 4, "y": 0, "matrix": [0.0, 2.8284271247461903, 3.1622776601683795]}, '+
-            '{"x": 2, "y": 2, "matrix": [2.8284271247461903, 0.0, 1.4142135623730951]}, '+
-            '{"x": 1, "y": 1, "matrix": [3.1622776601683795, 1.4142135623730951, 0.0]}]'
+            '[{"x": 4, "y": 0, "matrix": [0.0, 2.8284271247461903, 3.1622776601683795], "fatorHeuristico": [1, 2]}, '+
+            '{"x": 2, "y": 2, "matrix": [2.8284271247461903, 0.0, 1.4142135623730951], "fatorHeuristico": [2]}, '+
+            '{"x": 1, "y": 1, "matrix": [3.1622776601683795, 1.4142135623730951, 0.0], "fatorHeuristico": [1]}]'
         )
 
     def test_geraDistTotalDeCaminhoCorretamente(self):
@@ -68,9 +69,10 @@ class PSOTspTestCase(TestCase):
     def test_criaFatorHeuristicoCorretamente(self):
         ponto = Ponto.Ponto({'x':500, 'y':700})
         ponto.matrixDist = [1000, 2000, 3000, 0]
-        self.pontosObj.pontos.append(ponto)
-        self.pontosObj.pontos[0].matrixDist.append(1000)
-        self.pontosObj.pontos[1].matrixDist.append(2000)
-        self.pontosObj.pontos[2].matrixDist.append(3000)
-        self.pontosObj.calcFatorHeuristico()
-        self.assertEqual(self.pontosObj.pontos[3].fatorHeuristico, [0,1,2])
+        pontos = copy.deepcopy(self.pontosObj)
+        pontos.pontos.append(ponto)
+        pontos.pontos[0].matrixDist.append(1000)
+        pontos.pontos[1].matrixDist.append(2000)
+        pontos.pontos[2].matrixDist.append(3000)
+        pontos.calcFatorHeuristico()
+        self.assertEqual(pontos.pontos[3].fatorHeuristico, [0,1,2])
