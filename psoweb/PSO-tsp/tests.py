@@ -76,3 +76,11 @@ class PSOTspTestCase(TestCase):
         pontos.pontos[2].matrixDist.append(3000)
         pontos.calcFatorHeuristico()
         self.assertEqual(pontos.pontos[3].fatorHeuristico, [0,1,2])
+
+    def test_executaOperadorInjectCorretamente(self):
+        retornoInject1 = tspController.inject([1,2,3,4,5,1], [1,5], 2)
+        retornoInject2 = tspController.inject([1,2,3,4,5,1], [9,10,11], 1)
+        retornoInject3 = tspController.inject([1,2,3,4,5,1], [9,3,1], 5)
+        self.assertEqual(retornoInject1, [2,1,5,3,4,2])
+        self.assertEqual(retornoInject2, [1,9,10,11,2,3,4,5,1])
+        self.assertEqual(retornoInject3, [2,4,5,9,3,1,2])

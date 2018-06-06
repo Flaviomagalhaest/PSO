@@ -77,7 +77,20 @@ def crossOver(caminhoDestino, caminhoBest, k, m):
     P = caminhoBest[k:m]    #Parte do caminho pBest ou gBest que irá ser introduzido no caminho original
     caminhoDestino = caminhoDestino[0 : (len(caminhoDestino) - 1)] #Retirando último ponto da lista.
     caminhoRetorno = P + caminhoDestino
-    seen = set()
-    caminhoRetorno = [x for x in caminhoRetorno if not (x in seen or seen.add(x))]  #Limpando a lista deixando apenas pontos distintos
+    caminhoRetorno = limpandoLista(caminhoRetorno, set())  #Limpando a lista deixando apenas pontos distintos
     caminhoRetorno.append(caminhoRetorno[0])
     return caminhoRetorno
+
+def inject(caminhoDestino, parteAInjetar, injectConst):
+    caminhoDestino = caminhoDestino[0 : (len(caminhoDestino) - 1)] #Retirando último ponto da lista.
+    caminhoDestino = limpandoLista(caminhoDestino, set(parteAInjetar))
+    indice = caminhoDestino.index(injectConst) + 1
+    tamanho = len(caminhoDestino)
+    caminhoRetorno = caminhoDestino[0 : indice] + parteAInjetar + caminhoDestino[indice : tamanho]
+    caminhoRetorno.append(caminhoRetorno[0])    #Adicionando primeiro ponto ao final.
+    return caminhoRetorno
+
+#Limpando a lista deixando apenas pontos distintos
+def limpandoLista(caminho, listaAFiltrar):
+    seen = listaAFiltrar
+    return [x for x in caminho if not (x in seen or seen.add(x))]
