@@ -74,7 +74,7 @@ def atualizaPbest(individuos):
     return individuos
 
 def crossOver(caminhoDestino, caminhoBest, k, m):
-    P = caminhoBest[k:m]    #Parte do caminho pBest ou gBest que irá ser introduzido no caminho original
+    P = caminhoBest[k : k + m]    #Parte do caminho pBest ou gBest que irá ser introduzido no caminho original
     caminhoDestino = caminhoDestino[0 : (len(caminhoDestino) - 1)] #Retirando último ponto da lista.
     caminhoRetorno = P + caminhoDestino
     caminhoRetorno = limpandoLista(caminhoRetorno, set())  #Limpando a lista deixando apenas pontos distintos
