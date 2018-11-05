@@ -11,7 +11,7 @@ RUN apt-get install -y --fix-missing \
 # Set workd dir and copy requirements.txt to container
 WORKDIR /app
 # Copy requirements.txt to configured workdir (/app)
-COPY docker/requirements.txt .
+COPY requirements.txt .
 
 # Installs dependecies added in requirements.txt
 RUN pip3 install -r requirements.txt
