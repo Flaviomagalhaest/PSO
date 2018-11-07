@@ -18,10 +18,3 @@ RUN pip3 install -r requirements.txt
 
 # This command copy all itens in your app directory to container in configured workdir (/ app)
 COPY ./. .
-
-# Setting volume
-VOLUME .
-
-# Indicate the port
-EXPOSE 3001
-

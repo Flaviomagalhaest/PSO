@@ -1,0 +1,13 @@
+version: '3'
+services:
+ pso-service:
+  build:
+   context: .
+   dockerfile: Dockerfile
+  container_name: pso_tsp
+  ports:
+   - "3005:3005"
+  working_dir: /app
+  volumes:
+   - ../:/app
+  tty: true
