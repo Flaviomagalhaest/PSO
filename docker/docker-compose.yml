@@ -6,7 +6,7 @@ services:
    dockerfile: Dockerfile
   container_name: pso_tsp
   ports:
-   - "3005:3005"
+   - "5002:5002"
   working_dir: /app
   volumes:
    - ../:/app
